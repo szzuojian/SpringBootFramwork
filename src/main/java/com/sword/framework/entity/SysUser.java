@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,8 +24,9 @@ public class SysUser implements UserDetails {
 	 */
 	private static final long serialVersionUID = -6636204645387293733L;
 	@Id
-	@GeneratedValue
-	private Long id;
+	@GeneratedValue(generator = "useridGenerator")
+	@GenericGenerator(name = "useridGenerator", strategy = "uuid")
+	private String id;
 	private String username;
 	private String password;
 	private String phone;
@@ -34,11 +36,11 @@ public class SysUser implements UserDetails {
 	@ManyToMany(cascade = { CascadeType.REFRESH }, fetch = FetchType.LAZY)
 	private List<SysRole> roles;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

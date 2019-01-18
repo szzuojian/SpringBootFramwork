@@ -8,21 +8,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 public class SysRole {
 	@Id
-	@GeneratedValue
-	private Long id;
+	@GeneratedValue(generator = "roleidGenerator")
+	@GenericGenerator(name = "roleidGenerator", strategy = "uuid")
+	private String id;
 	private String name;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	private List<SysMenu> menus;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

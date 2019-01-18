@@ -4,12 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 public class SysMenu {
 
 	@Id
-	@GeneratedValue
-	private int id;
+	@GeneratedValue(generator = "menuidGenerator")
+	@GenericGenerator(name = "menuidGenerator", strategy = "uuid")
+	private String id;
 	// 权限名称
 	private String name;
 
@@ -20,13 +23,13 @@ public class SysMenu {
 	private String url;
 
 	// 父节点id
-	private int pid;
+	private String pid;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -54,11 +57,11 @@ public class SysMenu {
 		this.url = url;
 	}
 
-	public int getPid() {
+	public String getPid() {
 		return pid;
 	}
 
-	public void setPid(int pid) {
+	public void setPid(String pid) {
 		this.pid = pid;
 	}
 

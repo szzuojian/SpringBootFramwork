@@ -12,7 +12,8 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
-import com.sword.framework.util.AjaxUtil;
+import com.sword.framework.constant.Constants;
+import com.sword.framework.dto.ReturnInfo;
 
 /**
  * mvc异常处理器
@@ -33,8 +34,14 @@ public class MvcExceptionResolver implements HandlerExceptionResolver {
 		try {
 			String errorMsg = ExceptionUtils.getMessage(ex);
 			logger.error(ex);
+
+			ReturnInfo ret = new ReturnInfo();
+			ret.setSuccess(Constants.FAIL);
+			ret.setException(errorMsg);
+			ret.setMessage(ex.getMessage());
+
 			response.setContentType("application/json;charset=UTF-8");
-			response.getWriter().write(JSON.toJSONString(AjaxUtil.messageMap(500, errorMsg)));
+			response.getWriter().write(JSON.toJSONString(ret));
 			return new ModelAndView();
 
 		} catch (IOException e) {
