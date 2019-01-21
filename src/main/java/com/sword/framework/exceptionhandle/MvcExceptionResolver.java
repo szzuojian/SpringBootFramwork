@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +21,7 @@ import com.sword.framework.dto.ReturnInfo;
  * @author jelly
  *
  */
-@Component
+@Service
 public class MvcExceptionResolver implements HandlerExceptionResolver {
 	private Logger logger = Logger.getLogger(MvcExceptionResolver.class);
 

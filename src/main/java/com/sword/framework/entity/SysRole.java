@@ -17,9 +17,18 @@ public class SysRole {
 	@GenericGenerator(name = "roleidGenerator", strategy = "uuid")
 	private String id;
 	private String name;
+	private String description;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	private List<SysMenu> menus;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public String getId() {
 		return id;
