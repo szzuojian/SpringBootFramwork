@@ -33,7 +33,7 @@ public class MvcExceptionResolver implements HandlerExceptionResolver {
 		response.setCharacterEncoding("UTF-8");
 		try {
 			String errorMsg = ExceptionUtils.getMessage(ex);
-			logger.error(ex);
+			logger.error("MVC exception:", ex);
 
 			ReturnInfo ret = new ReturnInfo();
 			ret.setSuccess(Constants.FAIL);
@@ -45,7 +45,7 @@ public class MvcExceptionResolver implements HandlerExceptionResolver {
 			return new ModelAndView();
 
 		} catch (IOException e) {
-			logger.error(ExceptionUtils.getStackTrace(e));
+			logger.error("MVC IO exception:", e);
 		}
 		return new ModelAndView();
 

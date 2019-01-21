@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sword.framework.dao.SysRoleRepositroy;
@@ -14,7 +15,10 @@ import com.sword.framework.entity.SysUser;
 @Service
 public class UserManagerServiceImpl implements UserManagerService {
 
+	@Autowired
 	SysUserRepository userRepository;
+
+	@Autowired
 	SysRoleRepositroy roleRepository;
 
 	@Override

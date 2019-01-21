@@ -1,5 +1,6 @@
 package com.sword.framework.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,7 @@ import com.sword.framework.service.UserManagerService;
 @RestController
 public class UserManagerController {
 
+	@Autowired
 	private UserManagerService userService;
 
 	@RequestMapping(value = "/user/addAdminUser", method = RequestMethod.POST)
