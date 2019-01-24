@@ -1,6 +1,8 @@
 package com.sword.framework.dto;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ReturnInfo implements Serializable {
 
@@ -13,7 +15,7 @@ public class ReturnInfo implements Serializable {
 
 	private String message;
 
-	private String data;
+	private Map data = new HashMap();
 
 	private String exception;
 
@@ -41,12 +43,12 @@ public class ReturnInfo implements Serializable {
 		this.message = message;
 	}
 
-	public String getData() {
+	public Map getData() {
 		return data;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setData(String key, String data) {
+		this.data.put(key, data);
 	}
 
 }

@@ -2,6 +2,7 @@ package com.sword.framework.service;
 
 import javax.transaction.Transactional;
 
+@Transactional
 public interface UserManagerService {
 
 	/**
@@ -13,7 +14,6 @@ public interface UserManagerService {
 	 * @param addr
 	 * @param roleIds
 	 */
-	@Transactional
 	public void addUserInfo(String userName, String password, String phone, String addr, String[] roleIds);
 
 }
