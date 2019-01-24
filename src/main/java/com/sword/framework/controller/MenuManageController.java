@@ -1,6 +1,7 @@
 package com.sword.framework.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
@@ -24,7 +25,7 @@ public class MenuManageController {
 	@RequestMapping(value = "/menu/addMenu", method = RequestMethod.POST)
 	public @ResponseBody ReturnInfo addMenu(String jsonMenu) throws AuthenticationException {
 		JSONArray menuArray = JSONArray.fromObject(jsonMenu);
-		List menuList = (List) JSONArray.toCollection(menuArray);
+		List menuList = (List) JSONArray.toCollection(menuArray, Map.class);
 		menuService.addMenu(menuList);
 		ReturnInfo ret = new ReturnInfo();
 		ret.setSuccess(Constants.SUCCESS);
