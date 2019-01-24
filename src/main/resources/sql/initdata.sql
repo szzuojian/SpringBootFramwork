@@ -5,6 +5,13 @@ INSERT INTO sys_user_roles (sys_user_id, roles_id) VALUES ('1', '1');
 
 INSERT INTO sys_menu (id, descritpion, name, pid, url) VALUES ('1', '增加普通用户', '增加普通用户', NULL, '/user/addUser');
 INSERT INTO sys_menu (id, descritpion, name, pid, url) VALUES ('2', '增加管理员用户', '增加管理员用户', NULL, '/user/addAdminUser');
+INSERT INTO sys_menu (id, descritpion, name, pid, url) VALUES ('3', '增加角色', '增加角色', NULL, '/role/addRole');
+INSERT INTO sys_menu (id, descritpion, name, pid, url) VALUES ('4', '保存角色菜单', '保存角色菜单', NULL, '/role/saveRoleMenus');
+INSERT INTO sys_menu (id, descritpion, name, pid, url) VALUES ('5', '增加菜单', '增加菜单', NULL, '/menu/addMenu');
+
 
 INSERT INTO sys_role_menus (sys_role_id, menus_id) VALUES ('1', '1');
 INSERT INTO sys_role_menus (sys_role_id, menus_id) VALUES ('1', '2');
+INSERT INTO sys_role_menus (sys_role_id, menus_id) VALUES ('1', '3');
+INSERT INTO sys_role_menus (sys_role_id, menus_id) VALUES ('1', '4');
+INSERT INTO sys_role_menus (sys_role_id, menus_id) VALUES ('1', '5');
